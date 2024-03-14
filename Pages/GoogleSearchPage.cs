@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GoogleSearch.Objects;
+﻿using GoogleSearch.Objects;
 using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 
 namespace GoogleSearch.Pages
 {

@@ -1,8 +1,7 @@
 using GoogleSearch.Pages;
-using NUnit;
+using NUnit.Framework.Internal;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using NUnit.Framework.Internal;
 
 namespace GoogleSearch.tests
 {
@@ -13,6 +12,7 @@ namespace GoogleSearch.tests
         public void Setup()
         {
             driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
         }
 
         [Test]
@@ -21,9 +21,11 @@ namespace GoogleSearch.tests
             GoogleSearchPage search = new GoogleSearchPage();
 
             driver.Navigate().GoToUrl("https://www.google.com/");
-
+            string PageTitle = driver.Title;
+            Assert.That(TestContext.Parameters["SearchPageTitle"], Is.EqualTo(PageTitle));
             search.googleSearch(driver, TestContext.Parameters["SearchWord"]);
-            Thread.Sleep(1000);
+            string ResultPageTitle = driver.Title;
+            Assert.That(TestContext.Parameters["ResultPageTitle"], Is.EqualTo(ResultPageTitle));
         }
 
         [TearDown]
