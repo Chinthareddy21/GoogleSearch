@@ -6,7 +6,7 @@ namespace GoogleSearch.Pages
     internal class GoogleSearchPage
     {
 
-        public void googleSearch(IWebDriver driver, String? search)
+        public void googleSearch(IWebDriver driver, String search)
         {
             GoogleObjects objects = new GoogleObjects();
 
